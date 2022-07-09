@@ -60,6 +60,21 @@ public class LinkedList {
         temp.next = node;
         size++;
     }
+
+    // Insert
+    public void insertRec(int val, int index){
+        head=insertRecursion(val,index,head);
+    }
+    public Node insertRecursion(int val, int index, Node node){
+        if(index==0) {
+            Node temp = new Node(val, node);
+            size++;
+            return temp;
+        }
+        insertRecursion(val, index--, node.next);
+        return node;
+    }
+
     public Integer deleteFirst(){
         int val=head.value;
         head=head.next;
